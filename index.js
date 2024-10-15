@@ -30,10 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // スクロール検知によるヘッダー背景色変更
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
-      header.classList.add('bg-teal-400', 'shadow-md');
+      header.classList.add('bg-teal-700', 'shadow-md');
       header.classList.remove('bg-transparent');
     } else {
-      header.classList.remove('bg-teal-400', 'shadow-md');
+      header.classList.remove('bg-teal-700', 'shadow-md');
       header.classList.add('bg-transparent');
     }
     lucide.replace();
