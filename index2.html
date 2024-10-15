@@ -14,32 +14,64 @@
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
   
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
-  
   <!-- AOS CSS -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="styles.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Parallax Effect */
+    .parallax {
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    /* Hero Section Background Image */
+    .bg-hero {
+      background-image: url('https://via.placeholder.com/1920x1080'); /* 適切な画像URLに変更してください */
+    }
+    
+    /* Vision & Mission Background Image */
+    .bg-vision-mission {
+      background-image: url('https://via.placeholder.com/1920x1080'); /* 適切な画像URLに変更してください */
+    }
+    
+    /* Fade In Up Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate-fadeInUp {
+      animation: fadeInUp 1s ease-out forwards;
+    }
+  </style>
 </head>
 <body class="min-h-screen bg-neutral-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-inter">
 
   <!-- Header -->
-  <header id="header" class="fixed w-full z-20 transition-all duration-300 bg-transparent">
+  <header id="header" class="fixed w-full z-20 transition-all duration-300 bg-transparent text-white">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="#" id="logo" class="text-3xl font-bold text-white font-serif transition-colors duration-300">LUMINOSO</a>
+      <a href="#" id="logo" class="text-3xl font-bold font-serif transition-colors duration-300">LUMINOSO</a>
       <nav class="flex items-center">
         <ul class="hidden md:flex space-x-6 mr-6">
-          <li><a href="#about" class="nav-link text-white hover:text-teal-200 transition-colors">About</a></li>
-          <li><a href="#services" class="nav-link text-white hover:text-teal-200 transition-colors">Services</a></li>
-          <li><a href="#testimonials" class="nav-link text-white hover:text-teal-200 transition-colors">Testimonials</a></li>
-          <li><a href="#contact" class="nav-link text-white hover:text-teal-200 transition-colors">Contact</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
-        <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+        <button id="menu-toggle" class="md:hidden focus:outline-none">
           <i data-lucide="menu" class="w-6 h-6"></i>
         </button>
-        <button id="theme-toggle" class="p-2 ml-4 rounded-full bg-white/20 dark:bg-gray-700 focus:outline-none">
+        <button id="theme-toggle" class="ml-4 rounded-full bg-white/20 dark:bg-gray-700 p-2 focus:outline-none">
           <i data-lucide="moon" class="w-5 h-5 text-gray-800 dark:text-gray-200"></i>
         </button>
       </nav>
@@ -47,18 +79,18 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900">
       <ul class="flex flex-col items-center space-y-4 py-4">
-        <li><a href="#about" class="text-gray-800 dark:text-gray-200 hover:text-teal-600">About</a></li>
-        <li><a href="#services" class="text-gray-800 dark:text-gray-200 hover:text-teal-600">Services</a></li>
-        <li><a href="#testimonials" class="text-gray-800 dark:text-gray-200 hover:text-teal-600">Testimonials</a></li>
-        <li><a href="#contact" class="text-gray-800 dark:text-gray-200 hover:text-teal-600">Contact</a></li>
+        <li><a href="#about" class="hover:text-teal-600">About</a></li>
+        <li><a href="#services" class="hover:text-teal-600">Services</a></li>
+        <li><a href="#testimonials" class="hover:text-teal-600">Testimonials</a></li>
+        <li><a href="#contact" class="hover:text-teal-600">Contact</a></li>
       </ul>
     </div>
   </header>
 
   <!-- Main Content -->
-  <main>
+  <main class="pt-20">
     <!-- Hero Section -->
-    <section class="relative h-screen parallax bg-hero" data-aos="fade-up" style="background-image: url('img/9A79534A-7AE4-4C4A-B70A-7B8F05170A1F.jpg'); background-size: cover; background-position: center;">
+    <section class="relative h-screen parallax bg-hero" data-aos="fade-up">
       <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
         <div class="text-center text-white px-4">
           <h1 class="text-6xl font-bold mb-4 font-serif animate-fadeInUp">LUMINOSO</h1>
@@ -82,7 +114,7 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div class="relative overflow-hidden" data-aos="fade-right">
-            <img src="img/20FA483D-EE1F-45D6-89FC-406FF08D7706.jpg" alt="Enjoy your life" class="rounded-lg shadow-lg w-full h-auto transform transition-transform duration-1000 scale-105 hover:scale-100">
+            <img src="https://via.placeholder.com/600x400" alt="Enjoy your life" class="rounded-lg shadow-lg w-full h-auto transform transition-transform duration-1000 scale-105 hover:scale-100">
           </div>
           <div data-aos="fade-left">
             <h3 class="text-2xl font-semibold mb-4 text-teal-600 dark:text-teal-400">私たちの想い</h3>
@@ -104,8 +136,20 @@
       </svg>
     </div>
 
+    <!-- Vision & Mission Section -->
+    <section class="py-20 px-4 parallax bg-vision-mission" data-aos="fade-up">
+      <div class="bg-black bg-opacity-50 p-8">
+        <div class="container mx-auto max-w-6xl text-center text-white">
+          <h2 class="text-4xl font-bold mb-12 font-serif">LUMINOSOのビジョンとミッション</h2>
+          <p class="text-xl mb-4">私たちのビジョンは、すべてのお客様に自信と輝きを提供することです。</p>
+          <p class="text-xl mb-4">ミッションは、最新技術を駆使した高品質な脱毛サービスを通じて、お客様の美しさと快適さをサポートし続けることです。</p>
+          <p class="text-xl">私たちは、お客様一人ひとりのニーズに合わせた丁寧なケアと、安心して通える環境を提供することをお約束します。</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Services Section -->
-    <section id="services" class="bg-white dark:bg-gray-900 py-20 px-4" data-aos="fade-up">
+    <section id="services" class="py-20 px-4 bg-white dark:bg-gray-900" data-aos="fade-up">
       <div class="container mx-auto max-w-6xl">
         <h2 class="text-4xl font-bold mb-12 text-center text-teal-600 dark:text-teal-400 font-serif">私たちのサービス</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -137,58 +181,6 @@
       </div>
     </section>
 
-    <section class="py-20 px-4 parallax bg-vision-mission parallax-section" data-aos="fade-up" style="background-image: url('img/87AC4C99-D432-42D4-99D5-A5FDBBC66327.jpg');">
-      <div class="bg-black bg-opacity-50">
-        <div class="container mx-auto max-w-6xl text-center text-white">
-          <h2 class="text-4xl font-bold mb-12 font-serif">LUMINOSOのビジョンとミッション</h2>
-          <p class="text-xl mb-4">私たちのビジョンは、すべてのお客様に自信と輝きを提供することです。</p>
-          <p class="text-xl mb-4">ミッションは、最新技術を駆使した高品質な脱毛サービスを通じて、お客様の美しさと快適さをサポートし続けることです。</p>
-          <p class="text-xl">私たちは、お客様一人ひとりのニーズに合わせた丁寧なケアと、安心して通える環境を提供することをお約束します。</p>
-        </div>
-      </div>
-    </section>
-
-
-      <!-- Process Section -->
-      <section class="py-20 px-4 bg-white dark:bg-gray-800" data-aos="fade-up">
-        <div class="container mx-auto max-w-6xl">
-          <h2 class="text-4xl font-bold mb-12 text-center text-teal-600 dark:text-teal-400 font-serif">施術の流れ</h2>
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <!-- Step 1 -->
-            <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="100">
-              <div class="w-16 h-16 rounded-full bg-teal-500 flex items-center justify-center text-white font-bold text-2xl mb-4">1</div>
-              <h3 class="text-xl font-semibold mb-2 text-teal-600 dark:text-teal-400">カウンセリング</h3>
-              <p class="text-gray-600 dark:text-gray-300 text-center">お客様のお悩みやご要望をお聞きし、最適な施術プランをご提案します。</p>
-            </div>
-            <!-- Step 2 -->
-            <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
-              <div class="w-16 h-16 rounded-full bg-teal-500 flex items-center justify-center text-white font-bold text-2xl mb-4">2</div>
-              <h3 class="text-xl font-semibold mb-2 text-teal-600 dark:text-teal-400">施術</h3>
-              <p class="text-gray-600 dark:text-gray-300 text-center">最新技術を用いて、丁寧かつ効果的に脱毛を行います。</p>
-            </div>
-            <!-- Step 3 -->
-            <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="300">
-              <div class="w-16 h-16 rounded-full bg-teal-500 flex items-center justify-center text-white font-bold text-2xl mb-4">3</div>
-              <h3 class="text-xl font-semibold mb-2 text-teal-600 dark:text-teal-400">アフターケア</h3>
-              <p class="text-gray-600 dark:text-gray-300 text-center">施術後のケアについて詳しくご説明し、必要に応じたサポートを提供します。</p>
-            </div>
-            <!-- Step 4 -->
-            <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="400">
-              <div class="w-16 h-16 rounded-full bg-teal-500 flex items-center justify-center text-white font-bold text-2xl mb-4">4</div>
-              <h3 class="text-xl font-semibold mb-2 text-teal-600 dark:text-teal-400">フォローアップ</h3>
-              <p class="text-gray-600 dark:text-gray-300 text-center">定期的なフォローアップを通じて、最適な結果を維持します。</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    <!-- SVG Wave Divider -->
-    <div class="relative">
-      <svg class="absolute top-0 w-full h-12 text-gray-100 dark:text-gray-800" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path fill="currentColor" fill-opacity="1" d="M0,160L48,165.3C96,171,192,181,288,176C384,171,480,149,576,128C672,107,768,85,864,101.3C960,117,1056,171,1152,197.3C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-      </svg>
-    </div>
-
     <!-- Testimonials Section -->
     <section id="testimonials" class="py-20 px-4 bg-white dark:bg-gray-800" data-aos="fade-up">
       <div class="container mx-auto max-w-6xl">
@@ -198,7 +190,7 @@
             <!-- Testimonial Slide 1 -->
             <div class="swiper-slide">
               <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg text-center">
-                <img src="/placeholder.svg" alt="田中 美咲さん" class="rounded-full mb-4 w-24 h-24 mx-auto">
+                <img src="https://via.placeholder.com/96" alt="田中 美咲さん" class="rounded-full mb-4 w-24 h-24 mx-auto">
                 <p class="text-lg mb-4 text-gray-600 dark:text-gray-300 italic">"LUMINOSOで過ごす時間は、自分自身を見つめ直す大切な機会になっています。スタッフの方々の温かいサポートに感謝しています。"</p>
                 <p class="font-semibold text-teal-600 dark:text-teal-400">- 田中 美咲さん</p>
               </div>
@@ -206,7 +198,7 @@
             <!-- Testimonial Slide 2 -->
             <div class="swiper-slide">
               <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg text-center">
-                <img src="/placeholder.svg" alt="佐藤 健太さん" class="rounded-full mb-4 w-24 h-24 mx-auto">
+                <img src="https://via.placeholder.com/96" alt="佐藤 健太さん" class="rounded-full mb-4 w-24 h-24 mx-auto">
                 <p class="text-lg mb-4 text-gray-600 dark:text-gray-300 italic">"スタッフの方々の専門知識と丁寧な対応に、毎回感動しています。LUMINOSOは単なるサロンではなく、自己成長の場所です。"</p>
                 <p class="font-semibold text-teal-600 dark:text-teal-400">- 佐藤 健太さん</p>
               </div>
@@ -218,8 +210,6 @@
         </div>
       </div>
     </section>
-
-    <!-- その他のセクションも同様に続きます -->
 
     <!-- Contact Section -->
     <section id="contact" class="py-20 px-4 bg-teal-50 dark:bg-gray-900" data-aos="fade-up">
@@ -249,18 +239,18 @@
         <div>
           <h3 class="text-xl font-semibold mb-4">リンク</h3>
           <ul class="space-y-2">
-            <li><a href="#about" class="text-teal-200 dark:text-teal-400 hover:text-white transition-colors">About</a></li>
-            <li><a href="#services" class="text-teal-200 dark:text-teal-400 hover:text-white transition-colors">Services</a></li>
-            <li><a href="#testimonials" class="text-teal-200 dark:text-teal-400 hover:text-white transition-colors">Testimonials</a></li>
-            <li><a href="#contact" class="text-teal-200 dark:text-teal-400 hover:text-white transition-colors">Contact</a></li>
+            <li><a href="#about" class="hover:text-white">About</a></li>
+            <li><a href="#services" class="hover:text-white">Services</a></li>
+            <li><a href="#testimonials" class="hover:text-white">Testimonials</a></li>
+            <li><a href="#contact" class="hover:text-white">Contact</a></li>
           </ul>
         </div>
         <!-- Footer Column 3 -->
         <div>
           <h3 class="text-xl font-semibold mb-4">フォローする</h3>
-          <a href="https://www.instagram.com/luminoso" class="text-teal-200 dark:text-teal-400 hover:text-white transition-colors flex items-center">
+          <a href="https://www.instagram.com/luminoso" class="flex items-center hover:text-white">
             <i data-lucide="instagram" class="mr-2 w-5 h-5"></i>
-            Instagram
+            <span>Instagram</span>
           </a>
         </div>
       </div>
@@ -273,13 +263,83 @@
   <!-- Swiper JS CDN -->
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest/dist/lucide.js"></script>
-  
   <!-- AOS JS -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   
   <!-- Custom JavaScript -->
-  <script src="index.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // ダークモードのトグル
+      const themeToggle = document.getElementById('theme-toggle');
+      const header = document.getElementById('header');
+
+      // ダークモードの初期化
+      if (
+        localStorage.getItem('theme') === 'dark' ||
+        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        document.documentElement.classList.add('dark');
+        themeToggle.innerHTML = '<i data-lucide="sun" class="w-5 h-5 text-yellow-400"></i>';
+      } else {
+        themeToggle.innerHTML = '<i data-lucide="moon" class="w-5 h-5 text-gray-800 dark:text-gray-200"></i>';
+      }
+
+      themeToggle.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+        if (document.documentElement.classList.contains('dark')) {
+          localStorage.setItem('theme', 'dark');
+          themeToggle.innerHTML = '<i data-lucide="sun" class="w-5 h-5 text-yellow-400"></i>';
+        } else {
+          localStorage.setItem('theme', 'light');
+          themeToggle.innerHTML = '<i data-lucide="moon" class="w-5 h-5 text-gray-800 dark:text-gray-200"></i>';
+        }
+        lucide.replace();
+      });
+
+      // スクロール検知によるヘッダー背景色と文字色の変更
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.add('bg-white', 'text-black', 'shadow-md');
+          header.classList.remove('bg-transparent', 'text-white');
+        } else {
+          header.classList.remove('bg-white', 'text-black', 'shadow-md');
+          header.classList.add('bg-transparent', 'text-white');
+        }
+        lucide.replace();
+      });
+
+      // モバイルメニューのトグル
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        lucide.replace();
+      });
+
+      // Swiperの初期化
+      const swiper = new Swiper('.mySwiper', {
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+      });
+
+      // AOSの初期化
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+      });
+
+      // Lucide Iconsの再配置
+      lucide.replace();
+    });
+  </script>
 </body>
 </html>
