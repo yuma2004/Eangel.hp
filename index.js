@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // ダークモードのトグル
+
+  // ダークモードのトグル要素を取得
   const themeToggle = document.getElementById('theme-toggle');
-  const logo = document.getElementById('logo');
   const header = document.getElementById('header');
 
   // ダークモードの初期化
@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     themeToggle.innerHTML = '<i data-lucide="moon" class="w-5 h-5 text-gray-800 dark:text-gray-200"></i>';
   }
 
+  // トグルボタンのクリックイベントリスナー
   themeToggle.addEventListener('click', () => {
     document.documentElement.classList.toggle('dark');
     if (document.documentElement.classList.contains('dark')) {
@@ -24,7 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('theme', 'light');
       themeToggle.innerHTML = '<i data-lucide="moon" class="w-5 h-5 text-gray-800 dark:text-gray-200"></i>';
     }
-    lucide.replace();
+    if (typeof lucide !== 'undefined') {
+      lucide.replace(); // lucideが定義されていればアイコンを置換
+    }
   });
 
   // スクロール検知によるヘッダー背景色変更
@@ -36,7 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
       header.classList.remove('bg-teal-700', 'shadow-md');
       header.classList.add('bg-transparent');
     }
-    lucide.replace();
+    if (typeof lucide !== 'undefined') {
+      lucide.replace(); // lucideが定義されていればアイコンを置換
+    }
   });
 
   // モバイルメニューのトグル
@@ -45,7 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   menuToggle.addEventListener('click', () => {
     mobileMenu.classList.toggle('hidden');
-    lucide.replace();
+    if (typeof lucide !== 'undefined') {
+      lucide.replace(); // lucideが定義されていればアイコンを置換
+    }
   });
 
   // FAQのトグル
@@ -58,19 +65,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
       answer.classList.toggle('hidden');
       icon.setAttribute('data-lucide', answer.classList.contains('hidden') ? 'chevron-down' : 'chevron-up');
-      lucide.replace();
+      if (typeof lucide !== 'undefined') {
+        lucide.replace(); // lucideが定義されていればアイコンを置換
+      }
     });
   });
 
   // パララックス効果の実装
-window.addEventListener('scroll', function() {
-  const parallaxSections = document.querySelectorAll('.parallax-section');
-  parallaxSections.forEach(function(section) {
-    let scrollPosition = window.scrollY;
-    section.style.backgroundPosition = 'center ' + (scrollPosition * 0.5) + 'px';
+  window.addEventListener('scroll', function() {
+    const parallaxSections = document.querySelectorAll('.parallax-section');
+    parallaxSections.forEach(function(section) {
+      let scrollPosition = window.scrollY;
+      section.style.backgroundPosition = 'center ' + (scrollPosition * 0.5) + 'px';
+    });
   });
-});
-
 
   // Swiperの初期化
   const swiper = new Swiper('.swiper', {
@@ -91,7 +99,4 @@ window.addEventListener('scroll', function() {
     easing: 'ease-in-out',
     once: true,
   });
-
-  // Lucide Iconsの再配置
-  lucide.replace();
 });

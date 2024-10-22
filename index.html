@@ -1,39 +1,43 @@
 <!DOCTYPE html>
 <html lang="ja" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>LUMINOSO</title>
-  
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Lucide Icons CDN -->
-  <script src="https://unpkg.com/lucide@latest/dist/lucide.js"></script>
-  
+
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-  
+
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Serif+JP:wght@400;700&display=swap"
+    rel="stylesheet">
+
   <!-- AOS CSS -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  
+
   <!-- Custom Styles -->
   <link rel="stylesheet" href="styles.css">
+
+
 </head>
+
 <body class="min-h-screen bg-neutral-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-inter">
 
   <!-- Header -->
   <header id="header" class="fixed w-full z-20 transition-all duration-300 bg-transparent">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="#" id="logo" class="text-3xl font-bold text-white font-serif transition-colors duration-300">LUMINOSO</a>
+      <a href="#" id="logo" class="text-3xl md:text-4xl lg:text-5xl font-bold text-white font-serif transition-colors duration-300">luminoso</a>
       <nav class="flex items-center">
         <ul class="hidden md:flex space-x-6 mr-6">
           <li><a href="#about" class="nav-link text-white hover:text-teal-200 transition-colors">About</a></li>
           <li><a href="#services" class="nav-link text-white hover:text-teal-200 transition-colors">Services</a></li>
-          <li><a href="#testimonials" class="nav-link text-white hover:text-teal-200 transition-colors">Testimonials</a></li>
+          <li><a href="#testimonials" class="nav-link text-white hover:text-teal-200 transition-colors">Testimonials</a>
+          </li>
           <li><a href="#contact" class="nav-link text-white hover:text-teal-200 transition-colors">Contact</a></li>
         </ul>
         <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
@@ -47,10 +51,10 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900">
       <ul class="flex flex-col items-center space-y-4 py-4">
-        <li><a href="#about" class="text-gray-800 dark:text-gray-200 hover:text-teal-600">About</a></li>
-        <li><a href="#services" class="text-gray-800 dark:text-gray-200 hover:text-teal-600">Services</a></li>
-        <li><a href="#testimonials" class="text-gray-800 dark:text-gray-200 hover:text-teal-600">Testimonials</a></li>
-        <li><a href="#contact" class="text-gray-800 dark:text-gray-200 hover:text-teal-600">Contact</a></li>
+        <li><a href="#about" class="text-gray-800 dark:text-gray-200 hover:text-teal-600 text-lg md:text-xl lg:text-2xl">About</a></li>
+        <li><a href="#services" class="text-gray-800 dark:text-gray-200 hover:text-teal-600 text-lg md:text-xl lg:text-2xl">Services</a></li>
+        <li><a href="#testimonials" class="text-gray-800 dark:text-gray-200 hover:text-teal-600 text-lg md:text-xl lg:text-2xl">Testimonials</a></li>
+        <li><a href="#contact" class="text-gray-800 dark:text-gray-200 hover:text-teal-600 text-lg md:text-xl lg:text-2xl">Contact</a></li>
       </ul>
     </div>
   </header>
@@ -58,12 +62,15 @@
   <!-- Main Content -->
   <main>
     <!-- Hero Section -->
-    <section class="relative h-screen parallax bg-hero" data-aos="fade-up" style="background-image: url('img/9A79534A-7AE4-4C4A-B70A-7B8F05170A1F.jpg'); background-size: cover; background-position: center;">
+    <section class="relative h-screen parallax bg-hero" data-aos="fade-up"
+      style="background-image: url('img/9A79534A-7AE4-4C4A-B70A-7B8F05170A1F.jpg'); background-size: cover; background-position: center;">
       <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
         <div class="text-center text-white px-4">
-          <h1 class="text-6xl font-bold mb-4 font-serif animate-fadeInUp">LUMINOSO</h1>
-          <p class="text-2xl mb-8 animate-fadeInUp delay-200">自分らしく輝く、あなたのための特別な空間</p>
-          <a href="#about" class="bg-teal-500 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-teal-600 transition-colors animate-fadeInUp delay-400">詳しく見る</a>
+          <!-- レスポンシブなフォントサイズを設定 -->
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 font-serif animate-fadeInUp">luminoso</h1>
+          <p class="text-xl md:text-2xl lg:text-3xl mb-8 animate-fadeInUp delay-200 break-words">自分らしく輝くあなたのための特別な空間</p>
+          <a href="#about"
+            class="bg-teal-500 text-white px-8 py-3 rounded-full text-lg md:text-xl lg:text-2xl font-semibold hover:bg-teal-600 transition-colors animate-fadeInUp delay-400">詳しく見る</a>
         </div>
       </div>
       <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
@@ -72,25 +79,26 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 px-4 bg-white dark:bg-gray-800" data-aos="fade-up">
+    <section id="about" class="py-8 md:py-16 lg:py-20 px-4 bg-white dark:bg-gray-800" data-aos="fade-up">
       <div class="container mx-auto max-w-6xl">
-        <div class="text-center mb-12">
-          <h2 class="text-4xl font-bold text-teal-600 dark:text-teal-400 font-serif">LUMINOSOへようこそ</h2>
-          <p class="text-xl text-gray-600 dark:text-gray-300 mt-4">
-            LUMINOSOは、あなたの内なる美しさを引き出し、自信と輝きを高めるための特別な空間です。
+        <div class="text-center mb-12"> 
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-teal-600 dark:text-teal-400 font-serif">luminosoへ<br>ようこそ</h2>
+          <p class="text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mt-4 break-words">
+            luminosoはあなたの内なる美しさを引き出し自信と輝きを高めるための特別な空間です
           </p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div class="relative overflow-hidden" data-aos="fade-right">
-            <img src="img/20FA483D-EE1F-45D6-89FC-406FF08D7706.jpg" alt="Enjoy your life" class="rounded-lg shadow-lg w-full h-auto transform transition-transform duration-1000 scale-105 hover:scale-100">
+            <img src="img/right_trimmed_image.jpg" alt="Enjoy your life"
+              class="rounded-lg shadow-lg w-full h-auto transform transition-transform duration-1000 scale-105 hover:scale-100">
           </div>
           <div data-aos="fade-left">
-            <h3 class="text-2xl font-semibold mb-4 text-teal-600 dark:text-teal-400">私たちの想い</h3>
-            <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
-              LUMINOSOは、すべての人が自分自身を大切にし、本来の美しさを認識できる世界を目指しています。私たちは、あなたの個性を尊重し、内面から輝く自信を育むお手伝いをします。
+            <h3 class="text-2xl md:text-3xl lg:text-4xl font-semibold mb-4 text-teal-600 dark:text-teal-400">わたしたちの想い</h3>
+            <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4 break-words text-base md:text-lg lg:text-xl">
+              luminosoはすべての人が自分自身を大切にし本来の美しさを認識できる世界を目指しています私たちはあなたの個性を尊重し内面から輝く自信を育むお手伝いをします
             </p>
-            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
-              自己愛と自己実現の旅は、時に挑戦的かもしれません。しかし、その過程こそが、あなたを真の輝きへと導くのです。LUMINOSOは、その旅路であなたと共に歩みます。
+            <p class="text-gray-600 dark:text-gray-300 leading-relaxed break-words text-base md:text-lg lg:text-xl">
+              自己愛と自己実現の旅は時に挑戦的かもしれませんしかしその過程こそがあなたを真の輝きへと導くのですluminosoはその旅路であなたと共に歩みます
             </p>
           </div>
         </div>
@@ -99,116 +107,166 @@
 
     <!-- SVG Wave Divider -->
     <div class="relative">
-      <svg class="absolute top-0 w-full h-12 text-white dark:text-gray-800" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path fill="currentColor" fill-opacity="1" d="M0,160L48,165.3C96,171,192,181,288,176C384,171,480,149,576,128C672,107,768,85,864,101.3C960,117,1056,171,1152,197.3C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+      <svg class="absolute top-0 w-full h-12 text-white dark:text-gray-800" xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320">
+        <path fill="currentColor" fill-opacity="1"
+          d="M0,160L48,165.3C96,171,192,181,288,176C384,171,480,149,576,128C672,107,768,85,864,101.3C960,117,1056,171,1152,197.3C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+        </path>
       </svg>
     </div>
 
     <!-- Services Section -->
-    <section id="services" class="bg-white dark:bg-gray-900 py-20 px-4" data-aos="fade-up">
+    <section id="services" class="py-8 md:py-16 lg:py-20 px-4 bg-white dark:bg-gray-900" data-aos="fade-up">
       <div class="container mx-auto max-w-6xl">
-        <h2 class="text-4xl font-bold mb-12 text-center text-teal-600 dark:text-teal-400 font-serif">私たちのサービス</h2>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-center text-teal-600 dark:text-teal-400 font-serif">わたしたちの <br>サービス</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
           <!-- Service Card 1 -->
-          <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-xl" data-aos="zoom-in">
-            <i data-lucide="zap" class="text-5xl text-teal-500 dark:text-teal-400 mb-4"></i>
-            <h3 class="text-2xl font-semibold mb-4 text-teal-600 dark:text-teal-400">ライト脱毛</h3>
-            <p class="text-gray-600 dark:text-gray-300">
-              最新の技術で、肌に優しく効果的な脱毛処理を提供します。自信に満ちた美しい肌を手に入れましょう。
+          <div
+            class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+            data-aos="zoom-in">
+            <i data-lucide="zap" class="text-5xl md:text-6xl lg:text-7xl text-teal-500 dark:text-teal-400 mb-4"></i>
+            <h3 class="text-2xl md:text-3xl lg:text-4xl font-semibold mb-4 text-teal-600 dark:text-teal-400">美肌光脱毛</h3>
+            <p class="text-gray-600 dark:text-gray-300 break-words text-base md:text-lg lg:text-xl">
+              最新の技術で肌に優しく効果的な脱毛処理を提供します自信に満ちた美しい肌を手に入れましょう
             </p>
           </div>
           <!-- Service Card 2 -->
-          <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-xl" data-aos="zoom-in" data-aos-delay="100">
-            <i data-lucide="feather" class="text-5xl text-teal-500 dark:text-teal-400 mb-4"></i>
-            <h3 class="text-2xl font-semibold mb-4 text-teal-600 dark:text-teal-400">スキンケア</h3>
-            <p class="text-gray-600 dark:text-gray-300">
-              あなたの肌タイプに合わせたカスタマイズされたスキンケアプランをご提案。内側から輝く美しさを引き出します。
+          <div
+            class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+            data-aos="zoom-in" data-aos-delay="100">
+            <i data-lucide="feather" class="text-5xl md:text-6xl lg:text-7xl text-teal-500 dark:text-teal-400 mb-4"></i>
+            <h3 class="text-2xl md:text-3xl lg:text-4xl font-semibold mb-4 text-teal-600 dark:text-teal-400">スキンケア</h3>
+            <p class="text-gray-600 dark:text-gray-300 break-words text-base md:text-lg lg:text-xl">
+              あなたの肌タイプに合わせたカスタマイズされたスキンケアプランをご提案内側から輝く美しさを引き出します
             </p>
           </div>
           <!-- Service Card 3 -->
-          <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-xl" data-aos="zoom-in" data-aos-delay="200">
-            <i data-lucide="smile" class="text-5xl text-teal-500 dark:text-teal-400 mb-4"></i>
-            <h3 class="text-2xl font-semibold mb-4 text-teal-600 dark:text-teal-400">メンタルウェルネス</h3>
-            <p class="text-gray-600 dark:text-gray-300">
-              内面の美しさを引き出すためのマインドフルネスセッションを提供。心と体のバランスを整えます。
+          <div
+            class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+            data-aos="zoom-in" data-aos-delay="200">
+            <i data-lucide="smile" class="text-5xl md:text-6xl lg:text-7xl text-teal-500 dark:text-teal-400 mb-4"></i>
+            <h3 class="text-2xl md:text-3xl lg:text-4xl font-semibold mb-4 text-teal-600 dark:text-teal-400">マインド</h3>
+            <p class="text-gray-600 dark:text-gray-300 break-words text-base md:text-lg lg:text-xl">
+              内面の美しさを引き出すためのマインドフルネスセッションを提供心と体のバランスを整えます
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="py-20 px-4 parallax bg-vision-mission parallax-section" data-aos="fade-up" style="background-image: url('img/87AC4C99-D432-42D4-99D5-A5FDBBC66327.jpg');">
+    <!-- Vision and Mission Section -->
+    <section class="py-8 md:py-16 lg:py-20 px-4 parallax bg-vision-mission parallax-section" data-aos="fade-up"
+      style="background-image: url('img/87AC4C99-D432-42D4-99D5-A5FDBBC66327.jpg');">
       <div class="bg-black bg-opacity-50">
         <div class="container mx-auto max-w-6xl text-center text-white">
-          <h2 class="text-4xl font-bold mb-12 font-serif">LUMINOSOのビジョンとミッション</h2>
-          <p class="text-xl mb-4">私たちのビジョンは、すべてのお客様に自信と輝きを提供することです。</p>
-          <p class="text-xl mb-4">ミッションは、最新技術を駆使した高品質な脱毛サービスを通じて、お客様の美しさと快適さをサポートし続けることです。</p>
-          <p class="text-xl">私たちは、お客様一人ひとりのニーズに合わせた丁寧なケアと、安心して通える環境を提供することをお約束します。</p>
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-12 font-serif">luminosoの<br>  ビジョンと<br>ミッション</h2>
+          <p class="text-xl md:text-2xl lg:text-3xl mb-4">わたしたちのビジョンはすべてのお客様に自信と輝きを提供することです</p>
+          <p class="text-xl md:text-2xl lg:text-3xl mb-4">最新技術を駆使した高品質な脱毛サービスを通じてお客様の美しさと快適さをサポートし続ける</p>
+          <p class="text-xl md:text-2xl lg:text-3xl">わたしたちはお客様一人ひとりのニーズに合わせた丁寧なケアと <br>安心して通える環境を提供することをお約束します</p>
         </div>
       </div>
     </section>
 
-
-      <!-- Process Section -->
-      <section class="py-20 px-4 bg-white dark:bg-gray-800" data-aos="fade-up">
-        <div class="container mx-auto max-w-6xl">
-          <h2 class="text-4xl font-bold mb-12 text-center text-teal-600 dark:text-teal-400 font-serif">施術の流れ</h2>
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <!-- Step 1 -->
-            <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="100">
-              <div class="w-16 h-16 rounded-full bg-teal-500 flex items-center justify-center text-white font-bold text-2xl mb-4">1</div>
-              <h3 class="text-xl font-semibold mb-2 text-teal-600 dark:text-teal-400">カウンセリング</h3>
-              <p class="text-gray-600 dark:text-gray-300 text-center">お客様のお悩みやご要望をお聞きし、最適な施術プランをご提案します。</p>
-            </div>
-            <!-- Step 2 -->
-            <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
-              <div class="w-16 h-16 rounded-full bg-teal-500 flex items-center justify-center text-white font-bold text-2xl mb-4">2</div>
-              <h3 class="text-xl font-semibold mb-2 text-teal-600 dark:text-teal-400">施術</h3>
-              <p class="text-gray-600 dark:text-gray-300 text-center">最新技術を用いて、丁寧かつ効果的に脱毛を行います。</p>
-            </div>
-            <!-- Step 3 -->
-            <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="300">
-              <div class="w-16 h-16 rounded-full bg-teal-500 flex items-center justify-center text-white font-bold text-2xl mb-4">3</div>
-              <h3 class="text-xl font-semibold mb-2 text-teal-600 dark:text-teal-400">アフターケア</h3>
-              <p class="text-gray-600 dark:text-gray-300 text-center">施術後のケアについて詳しくご説明し、必要に応じたサポートを提供します。</p>
-            </div>
-            <!-- Step 4 -->
-            <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="400">
-              <div class="w-16 h-16 rounded-full bg-teal-500 flex items-center justify-center text-white font-bold text-2xl mb-4">4</div>
-              <h3 class="text-xl font-semibold mb-2 text-teal-600 dark:text-teal-400">フォローアップ</h3>
-              <p class="text-gray-600 dark:text-gray-300 text-center">定期的なフォローアップを通じて、最適な結果を維持します。</p>
-            </div>
+    <!-- Process Section -->
+    <section class="py-8 md:py-16 lg:py-20 px-4 bg-white dark:bg-gray-800" data-aos="fade-up">
+      <div class="container mx-auto max-w-6xl">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-center text-teal-600 dark:text-teal-400 font-serif">施術の流れ</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <!-- Step 1 -->
+          <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="100">
+            <div
+              class="w-16 h-16 rounded-full bg-teal-500 flex items-center justify-center text-white font-bold text-2xl mb-4">
+              1</div>
+            <h3 class="text-xl md:text-2xl lg:text-3xl font-semibold mb-2 text-teal-600 dark:text-teal-400">カウンセリング</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-center break-words text-base md:text-lg lg:text-xl">お客様のお悩みやご要望をお聞きし最適な施術プランをご提案します</p>
+          </div>
+          <!-- Step 2 -->
+          <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
+            <div
+              class="w-16 h-16 rounded-full bg-teal-500 flex items-center justify-center text-white font-bold text-2xl mb-4">
+              2</div>
+            <h3 class="text-xl md:text-2xl lg:text-3xl font-semibold mb-2 text-teal-600 dark:text-teal-400">施術</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-center break-words text-base md:text-lg lg:text-xl">最新技術を用いて丁寧かつ効果的に脱毛を行います</p>
+          </div>
+          <!-- Step 3 -->
+          <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="300">
+            <div
+              class="w-16 h-16 rounded-full bg-teal-500 flex items-center justify-center text-white font-bold text-2xl mb-4">
+              3</div>
+            <h3 class="text-xl md:text-2xl lg:text-3xl font-semibold mb-2 text-teal-600 dark:text-teal-400">アフターケア</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-center break-words text-base md:text-lg lg:text-xl">施術後のケアについて詳しくご説明し必要に応じたサポートを提供します</p>
+          </div>
+          <!-- Step 4 -->
+          <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="400">
+            <div
+              class="w-16 h-16 rounded-full bg-teal-500 flex items-center justify-center text-white font-bold text-2xl mb-4">
+              4</div>
+            <h3 class="text-xl md:text-2xl lg:text-3xl font-semibold mb-2 text-teal-600 dark:text-teal-400">フォローアップ</h3>
+            <p class="text-gray-600 dark:text-gray-300 text-center break-words text-base md:text-lg lg:text-xl">定期的なフォローアップを通じて最適な結果を維持します</p>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
     <!-- SVG Wave Divider -->
     <div class="relative">
-      <svg class="absolute top-0 w-full h-12 text-gray-100 dark:text-gray-800" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path fill="currentColor" fill-opacity="1" d="M0,160L48,165.3C96,171,192,181,288,176C384,171,480,149,576,128C672,107,768,85,864,101.3C960,117,1056,171,1152,197.3C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+      <svg class="absolute top-0 w-full h-12 text-gray-100 dark:text-gray-800" xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320">
+        <path fill="currentColor" fill-opacity="1"
+          d="M0,160L48,165.3C96,171,192,181,288,176C384,171,480,149,576,128C672,107,768,85,864,101.3C960,117,1056,171,1152,197.3C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+        </path>
       </svg>
     </div>
 
+
+<!-- 追加するセクション -->
+<section class="py-8 md:py-16 lg:py-20 px-4 bg-white dark:bg-gray-800" data-aos="fade-up">
+  <div class="container mx-auto max-w-6xl">
+    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-12 text-center text-teal-600 dark:text-teal-400 font-serif">施術の様子</h2>
+    <div class="flex flex-col md:flex-row md:-mx-4">
+      
+      <!-- 画像1とテキスト -->
+      <div class="md:w-1/2 md:px-4 mb-8 md:mb-0" data-aos="fade-right">
+        <img src="img/S__8151221.jpg" alt="施術風景1" class="w-full h-auto rounded-lg shadow-lg">
+        <p class="mt-4 text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-300">
+          落ち着いた部屋でリラックスして施術を受けることができます。お客様のご要望に合わせて施術を行います。
+        </p>
+      </div>
+      
+      <!-- 画像2とテキスト -->
+      <div class="md:w-1/2 md:px-4" data-aos="fade-left">
+        <img src="img/S__8151222_0.jpg" alt="施術風景2" class="w-full h-auto rounded-lg shadow-lg">
+        <p class="mt-4 text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-300">
+          luminosoではお客様の美しさを引き出すために光脱毛器を使用しております。肌に優しい脱毛を提供します。
+        </p>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 px-4 bg-white dark:bg-gray-800" data-aos="fade-up">
+    <section id="testimonials" class="py-8 md:py-16 lg:py-20 px-4 bg-white dark:bg-gray-800" data-aos="fade-up">
       <div class="container mx-auto max-w-6xl">
-        <h2 class="text-4xl font-bold mb-12 text-center text-teal-600 dark:text-teal-400 font-serif">お客様の声</h2>
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-12 text-center text-teal-600 dark:text-teal-400 font-serif">お客様の声</h2>
         <div class="swiper mySwiper">
           <div class="swiper-wrapper">
             <!-- Testimonial Slide 1 -->
             <div class="swiper-slide">
               <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg text-center">
-                <img src="/placeholder.svg" alt="田中 美咲さん" class="rounded-full mb-4 w-24 h-24 mx-auto">
-                <p class="text-lg mb-4 text-gray-600 dark:text-gray-300 italic">"LUMINOSOで過ごす時間は、自分自身を見つめ直す大切な機会になっています。スタッフの方々の温かいサポートに感謝しています。"</p>
-                <p class="font-semibold text-teal-600 dark:text-teal-400">- 田中 美咲さん</p>
+                <img src="/img/人物アイコン.jpeg" alt="田中 美咲さん" class="rounded-full mb-4 w-24 h-24 mx-auto">
+                <p class="text-lg md:text-xl lg:text-2xl mb-4 text-gray-600 dark:text-gray-300 italic">"本日はありがとうございました
+                  丁寧に説明してくださいましたうなじ背中の脱毛で綺麗になるのが楽しみですまたお願いします"</p>
+                <p class="font-semibold text-teal-600 dark:text-teal-400">- ぺこさま</p>
               </div>
             </div>
             <!-- Testimonial Slide 2 -->
             <div class="swiper-slide">
               <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg text-center">
-                <img src="/placeholder.svg" alt="佐藤 健太さん" class="rounded-full mb-4 w-24 h-24 mx-auto">
-                <p class="text-lg mb-4 text-gray-600 dark:text-gray-300 italic">"スタッフの方々の専門知識と丁寧な対応に、毎回感動しています。LUMINOSOは単なるサロンではなく、自己成長の場所です。"</p>
-                <p class="font-semibold text-teal-600 dark:text-teal-400">- 佐藤 健太さん</p>
+                <img src="/img/人物アイコン.jpeg" alt="佐藤 健太さん" class="rounded-full mb-4 w-24 h-24 mx-auto">
+                <p class="text-lg md:text-xl lg:text-2xl mb-4 text-gray-600 dark:text-gray-300 italic">
+                  "初めての脱毛で不安もありましたがスッキリしたので行って良かったです綺麗になるのが楽しみですまたお願いします🤍"</p>
+                <p class="font-semibold text-teal-600 dark:text-teal-400">- Nさま</p>
               </div>
             </div>
             <!-- 追加のスライドが必要な場合はここに追加 -->
@@ -219,18 +277,22 @@
       </div>
     </section>
 
-    <section class="bg-gradient-to-r from-teal-500 to-teal-700 dark:from-teal-700 dark:to-teal-900 py-20 px-4 text-white">
+    <!-- Call to Action Section -->
+    <section
+      class="py-8 md:py-16 lg:py-20 px-4 bg-gradient-to-r from-teal-500 to-teal-700 dark:from-teal-700 dark:to-teal-900 text-white">
       <div class="container mx-auto max-w-6xl text-center">
-        <h2 class="text-4xl font-bold mb-8 font-serif">自分らしさを輝かせる</h2>
-        <p class="text-xl mb-12">
-          LUMINOSOは、あなたの内なる輝きを引き出し、自信と美しさを高めるお手伝いをします。自己愛と自己実現の旅に、今すぐ出発しましょう。
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 font-serif">自分らしさを <br>輝かせる</h2>
+        <p class="text-xl md:text-2xl lg:text-3xl mb-12">
+          luminosoはあなたの内なる輝きを引き出し自信と美しさを高めるお手伝いをします <br>自己愛と自己実現の旅に今すぐ出発しましょう
         </p>
         <div class="flex flex-col md:flex-row justify-center items-center gap-4">
-          <a href="https://www.instagram.com/luminoso" class="inline-flex items-center bg-white text-teal-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-teal-100 transition-colors">
+          <a href="https://www.instagram.com/"
+            class="inline-flex items-center bg-white text-teal-600 px-8 py-4 rounded-full text-lg md:text-xl lg:text-2xl font-semibold hover:bg-teal-100 transition-colors">
             <i data-lucide="instagram" class="mr-2 w-5 h-5"></i>
             Instagramでフォロー
           </a>
-          <a href="#contact" class="inline-flex items-center bg-transparent border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-teal-600 transition-colors">
+          <a href="#contact"
+            class="inline-flex items-center bg-transparent border-2 border-white text-white px-8 py-4 rounded-full text-lg md:text-xl lg:text-2xl font-semibold hover:bg-white hover:text-teal-600 transition-colors">
             <i data-lucide="sparkles" class="mr-2 w-5 h-5"></i>
             無料カウンセリング予約
           </a>
@@ -238,15 +300,15 @@
       </div>
     </section>
 
-
     <!-- Contact Section -->
-    <section id="contact" class="py-20 px-4 bg-teal-50 dark:bg-gray-900" data-aos="fade-up">
+    <section id="contact" class="py-8 md:py-16 lg:py-20 px-4 bg-teal-50 dark:bg-gray-900" data-aos="fade-up">
       <div class="container mx-auto max-w-6xl text-center">
-        <h2 class="text-4xl font-bold mb-8 text-teal-600 dark:text-teal-400 font-serif">お問い合わせ</h2>
-        <p class="text-xl mb-8 text-gray-600 dark:text-gray-300">
-          LUMINOSOについてもっと詳しく知りたい方、ご質問がある方は、お気軽にお問い合わせください。私たちは、あなたの美しさの旅をサポートする準備ができています。
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-teal-600 dark:text-teal-400 font-serif">お問い合わせ</h2>
+        <p class="text-lg md:text-xl lg:text-2xl mb-8 text-gray-600 dark:text-gray-300 break-words">
+          luminosoについてもっと詳しく知りたい方 <br>ご質問がある方 <br>お気軽にお問い合わせください <br>あなたの美しさの旅をサポートします
         </p>
-        <a href="#" class="inline-flex items-center bg-teal-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-teal-700 transition-colors">
+        <a href="#"
+          class="inline-flex items-center bg-teal-600 text-white px-8 py-4 rounded-full text-lg md:text-xl lg:text-2xl font-semibold hover:bg-teal-700 transition-colors">
           <i data-lucide="calendar" class="mr-2 w-5 h-5"></i>
           お問い合わせ
         </a>
@@ -260,44 +322,49 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Footer Column 1 -->
         <div>
-          <h3 class="text-2xl font-semibold mb-4 font-serif">LUMINOSO</h3>
-          <p class="text-teal-200 dark:text-teal-400">自分らしく輝く、あなたのための特別な空間</p>
+          <h3 class="text-2xl md:text-3xl lg:text-4xl font-semibold mb-4 font-serif">luminoso</h3>
+          <p class="text-teal-200 dark:text-teal-400 text-base md:text-lg lg:text-xl">自分らしく輝くあなたのための特別な空間</p>
         </div>
         <!-- Footer Column 2 -->
         <div>
-          <h3 class="text-xl font-semibold mb-4">リンク</h3>
+          <h3 class="text-xl md:text-2xl lg:text-3xl font-semibold mb-4">リンク</h3>
           <ul class="space-y-2">
-            <li><a href="#about" class="text-teal-200 dark:text-teal-400 hover:text-white transition-colors">About</a></li>
-            <li><a href="#services" class="text-teal-200 dark:text-teal-400 hover:text-white transition-colors">Services</a></li>
-            <li><a href="#testimonials" class="text-teal-200 dark:text-teal-400 hover:text-white transition-colors">Testimonials</a></li>
-            <li><a href="#contact" class="text-teal-200 dark:text-teal-400 hover:text-white transition-colors">Contact</a></li>
+            <li><a href="#about" class="text-teal-200 dark:text-teal-400 hover:text-white transition-colors text-base md:text-lg lg:text-xl">About</a>
+            </li>
+            <li><a href="#services"
+                class="text-teal-200 dark:text-teal-400 hover:text-white transition-colors text-base md:text-lg lg:text-xl">Services</a></li>
+            <li><a href="#testimonials"
+                class="text-teal-200 dark:text-teal-400 hover:text-white transition-colors text-base md:text-lg lg:text-xl">Testimonials</a></li>
+            <li><a href="#contact"
+                class="text-teal-200 dark:text-teal-400 hover:text-white transition-colors text-base md:text-lg lg:text-xl">Contact</a></li>
           </ul>
         </div>
         <!-- Footer Column 3 -->
         <div>
-          <h3 class="text-xl font-semibold mb-4">フォローする</h3>
-          <a href="https://www.instagram.com/luminoso" class="text-teal-200 dark:text-teal-400 hover:text-white transition-colors flex items-center">
+          <h3 class="text-xl md:text-2xl lg:text-3xl font-semibold mb-4">フォローする</h3>
+          <a href="https://www.instagram.com/luminoso"
+            class="text-teal-200 dark:text-teal-400 hover:text-white transition-colors flex items-center text-base md:text-lg lg:text-xl">
             <i data-lucide="instagram" class="mr-2 w-5 h-5"></i>
             Instagram
           </a>
         </div>
       </div>
       <div class="mt-8 pt-8 border-t border-teal-800 dark:border-gray-700 text-center">
-        <p class="text-teal-200 dark:text-teal-400">&copy; 2024 LUMINOSO. All rights reserved.</p>
+        <p class="text-teal-200 dark:text-teal-400 text-base md:text-lg lg:text-xl">&copy; 2024 LUMINOSO All rights reserved</p>
       </div>
     </div>
   </footer>
 
   <!-- Swiper JS CDN -->
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  
+
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest/dist/lucide.js"></script>
-  
+
   <!-- AOS JS -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  
   <!-- Custom JavaScript -->
   <script src="index.js"></script>
+  
 </body>
 </html>

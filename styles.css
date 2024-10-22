@@ -12,31 +12,6 @@ html {
 /* Vision & Mission Background Image */
 .bg-vision-mission {
   background-image: url('img/vision-mission-bg.jpg'); /* 適切な画像パスに変更してください */
-  background-size: cover;
-  background-position: center;
-}
-
-/* Hero Section Background Image */
-.bg-hero {
-  background-image: url('img/hero-bg.jpg'); /* 適切な画像パスに変更してください */
-  background-size: cover;
-  background-position: center;
-}
-
-/* Fade In Up Animation */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fadeInUp {
-  animation: fadeInUp 1s ease-out forwards;
 }
 
 /* Swiper Pagination Customization */
@@ -96,4 +71,96 @@ footer h3 {
 
 footer p {
   font-size: 0.875rem;
+
+  background-position: center;
+}
+
+/* Hero Section Background Image */
+.bg-hero {
+  background-image: url('img/hero-bg.jpg'); /* 適切な画像パスに変更してください */
+  background-size: cover;
+  background-position: center;
+}
+
+/* Fade In Up Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 3s ease-out forwards;
+}
+
+/* Swiper Pagination Customization */
+.swiper-pagination-bullet {
+  background: teal;
+}
+
+.swiper-pagination-bullet-active {
+  background: #fff;
+}
+
+/* Additional Custom Styles */
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .swiper-pagination {
+    bottom: 10px;
+  }
+}
+
+/* Button Styles */
+button {
+  cursor: pointer;
+}
+
+/* FAQ Styles */
+.faq-toggle {
+  font-size: 1.25rem;
+}
+
+.faq-answer {
+  font-size: 1rem;
+}
+
+/* Call to Action Buttons */
+a.inline-flex {
+  align-items: center;
+  justify-content: center;
+}
+
+a.rounded-full {
+  border-radius: 9999px;
+}
+
+a.hover\:bg-teal-100:hover {
+  background-color: #e0f2f1;
+}
+
+a.hover\:text-teal-600:hover {
+  color: #00897b;
+}
+
+/* Footer Styles */
+footer h3 {
+  font-family: 'Noto Serif JP', serif;
+}
+
+footer p {
+  font-size: 0.875rem;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+#theme-toggle {
+  display: none;
 }
