@@ -1,0 +1,127 @@
+// Google Apps Script用のコード
+
+// POSTリクエストを処理する関数
+function doPost(e) {
+  try {
+    // リクエストデータをパース
+    const data = JSON.parse(e.postData.contents);
+    
+    // スプレッドシートに予約データを記録
+    recordReservation(data);
+    
+    // 予約者に確認メールを送信
+    sendConfirmationEmail(data);
+    
+    // 管理者に通知メールを送信
+    sendNotificationToAdmin(data);
+    
+    return ContentService.createTextOutput(JSON.stringify({
+      status: 'success',
+      message: '予約を受け付けました'
+    })).setMimeType(ContentService.MimeType.JSON);
+    
+  } catch (error) {
+    console.error('Error:', error);
+    return ContentService.createTextOutput(JSON.stringify({
+      status: 'error',
+      message: error.toString()
+    })).setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+; // スプレッドシートに予約データを記録する関数
+; function recordReservation(data) {
+;   const ss = SpreadsheetApp.getActiveSpreadsheet();
+;   const sheet = ss.getSheetByName('予約データ') || ss.insertSheet('予約データ');
+  
+;   // ヘッダーがなければ追加
+;   if (sheet.getLastRow() === 0) {
+;     sheet.appendRow([
+;       '予約日時',
+;       '名前',
+;       'メールアドレス',
+;       '電話番号',
+;       '希望メニュー',
+;       '第1希望日時',
+;       '第2希望日時',
+;       '第3希望日時',
+;       'メッセージ'
+;     ]);
+;   }
+  
+;   // データを追加
+;   sheet.appendRow([
+;     new Date(),
+;     data.name,
+;     data.email,
+;     data.phone,
+;     data.selectedMenus.join(', '),
+;     `${data.preferences[0].date} ${data.preferences[0].time}`,
+;     `${data.preferences[1].date} ${data.preferences[1].time}`,
+;     `${data.preferences[2].date} ${data.preferences[2].time}`,
+;     data.message
+;   ]);
+; }
+
+// 予約者に確認メールを送信する関数
+function sendConfirmationEmail(data) {
+  const subject = '【Luminoso】カウンセリング予約を受け付けました';
+  
+  let body = `${data.name} 様\n\n`;
+  body += 'Luminosoをご利用いただき、ありがとうございます。\n';
+  body += 'カウンセリングのご予約を受け付けました。\n\n';
+  body += '【ご予約内容】\n';
+  body += `お名前: ${data.name}\n`;
+  body += `メールアドレス: ${data.email}\n`;
+  body += `電話番号: ${data.phone}\n`;
+  body += `希望メニュー: ${data.selectedMenus.join(', ')}\n\n`;
+  body += '【希望日時】\n';
+  body += `第1希望: ${data.preferences[0].date} ${data.preferences[0].time}\n`;
+  if (data.preferences[1].date) {
+    body += `第2希望: ${data.preferences[1].date} ${data.preferences[1].time}\n`;
+  }
+  if (data.preferences[2].date) {
+    body += `第3希望: ${data.preferences[2].date} ${data.preferences[2].time}\n`;
+  }
+  if (data.message) {
+    body += `\n【メッセージ】\n${data.message}\n`;
+  }
+  body += '\n担当者より改めて日時の確定のご連絡をさせていただきます。\n';
+  body += 'しばらくお待ちくださいますようお願いいたします。\n\n';
+  body += '※このメールは自動送信されています。\n';
+  body += '※このメールに返信いただいても対応できかねます。\n\n';
+  body += '━━━━━━━━━━━━━━━━━━━━━━━━━━\n';
+  body += 'Luminoso\n';
+  body += 'TEL: XXX-XXXX-XXXX\n';
+  body += 'Email: xxxx@xxxx.com\n';
+  body += '━━━━━━━━━━━━━━━━━━━━━━━━━━';
+  
+  MailApp.sendEmail(data.email, subject, body);
+}
+
+// 管理者に通知メールを送信する関数
+function sendNotificationToAdmin(data) {
+  const adminEmail = 'admin@luminoso.com'; // 管理者のメールアドレスを設定
+  const subject = '【新規予約】カウンセリング予約が入りました';
+  
+  let body = '新規カウンセリング予約が入りました。\n\n';
+  body += '【予約内容】\n';
+  body += `予約日時: ${new Date()}\n`;
+  body += `お名前: ${data.name}\n`;
+  body += `メールアドレス: ${data.email}\n`;
+  body += `電話番号: ${data.phone}\n`;
+  body += `希望メニュー: ${data.selectedMenus.join(', ')}\n\n`;
+  body += '【希望日時】\n';
+  body += `第1希望: ${data.preferences[0].date} ${data.preferences[0].time}\n`;
+  if (data.preferences[1].date) {
+    body += `第2希望: ${data.preferences[1].date} ${data.preferences[1].time}\n`;
+  }
+  if (data.preferences[2].date) {
+    body += `第3希望: ${data.preferences[2].date} ${data.preferences[2].time}\n`;
+  }
+  if (data.message) {
+    body += `\n【メッセージ】\n${data.message}\n`;
+  }
+  
+  MailApp.sendEmail(adminEmail, subject, body);
+} 
