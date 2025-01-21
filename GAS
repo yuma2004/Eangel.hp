@@ -101,7 +101,7 @@ function sendConfirmationEmail(data) {
 
 // 管理者に通知メールを送信する関数
 function sendNotificationToAdmin(data) {
-  const adminEmail = 'admin@luminoso.com'; // 管理者のメールアドレスを設定
+  const adminEmail = 'luminoso2024.ai@gmail.com'; // 管理者のメールアドレスを設定
   const subject = '【新規予約】カウンセリング予約が入りました';
   
   let body = '新規カウンセリング予約が入りました。\n\n';
