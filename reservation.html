@@ -1,391 +1,378 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>脱毛サロン無料カウンセリング予約</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0fff4;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            width: 100%;
-        }
-        h1 {
-            color: #15803d;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #15803d;
-        }
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"],
-        input[type="date"],
-        input[type="time"],
-        textarea,
-        select {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #86efac;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        input[type="text"]:focus,
-        input[type="email"]:focus,
-        input[type="tel"]:focus,
-        input[type="date"]:focus,
-        input[type="time"]:focus,
-        textarea:focus,
-        select:focus {
-            outline: none;
-            border-color: #22c55e;
-            box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
-        }
-        .accordion {
-            margin-bottom: 15px;
-        }
-        .accordion-item {
-            border: 1px solid #d1fae5;
-            border-radius: 4px;
-            margin-bottom: 10px;
-        }
-        .accordion-header {
-            background-color: #ecfdf5;
-            padding: 10px;
-            cursor: pointer;
-        }
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-        .accordion-trigger {
-            display: none;
-        }
-        .accordion-trigger:checked + .accordion-item .accordion-content {
-            max-height: 1000px;
-        }
-        .accordion-trigger:checked + .accordion-item .accordion-header::after {
-            content: "▲";
-        }
-        .accordion-header::after {
-            content: "▼";
-            float: right;
-        }
-        .menu-item {
-            padding: 10px;
-            border-top: 1px solid #d1fae5;
-        }
-        .menu-item label {
-            display: flex;
-            align-items: center;
-        }
-        .menu-item input[type="checkbox"] {
-            margin-right: 10px;
-        }
-        .menu-item-description {
-            font-size: 0.9em;
-            color: #4b5563;
-            margin-left: 25px;
-        }
-        button {
-            background-color: #22c55e;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-            font-size: 16px;
-        }
-        button:hover {
-            background-color: #16a34a;
-        }
-        .date-time-group {
-            margin-top: 10px;
-        }
-        .preference {
-            margin-bottom: 20px;
-            padding: 15px;
-            border: 1px solid #d1fae5;
-            border-radius: 4px;
-            background-color: #f8fafc;
-        }
-        .preference label {
-            margin-top: 10px;
-        }
-        .preference select {
-            margin-top: 5px;
-        }
-        @media (max-width: 600px) {
-            .container {
-                padding: 15px;
-            }
-        }
-    </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.querySelector('form');
-            form.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                
-                // 選択されたメニューを取得
-                const selectedMenus = Array.from(document.querySelectorAll('input[name="menu"]:checked'))
-                    .map(checkbox => checkbox.value);
-
-                const formData = {
-                    name: document.getElementById('name').value,
-                    email: document.getElementById('email').value,
-                    phone: document.getElementById('phone').value,
-                    selectedMenus: selectedMenus,
-                    preferences: [
-                        {
-                            date: document.getElementById('preferredDate1').value,
-                            time: document.getElementById('preferredTime1').value
-                        },
-                        {
-                            date: document.getElementById('preferredDate2').value,
-                            time: document.getElementById('preferredTime2').value
-                        },
-                        {
-                            date: document.getElementById('preferredDate3').value,
-                            time: document.getElementById('preferredTime3').value
-                        }
-                    ],
-                    message: document.getElementById('message').value
-                };
-
-                try {
-                    const submitButton = document.querySelector('button[type="submit"]');
-                    submitButton.disabled = true;
-                    submitButton.textContent = '送信中...';
-
-                    const response = await fetch('https://script.google.com/macros/s/AKfycbxcc7E1maUqh3hc1Mm-KLJ120zT9mhJlAwMqY5B8m4ZtGZM-FIwETPD3QV_ZH-2pKOpXA/exec', {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(formData)
-                    });
-
-                    alert('予約リクエストを受け付けました。\nご入力いただいたメールアドレスに確認メールをお送りいたしますので、ご確認ください。');
-                    form.reset();
-                } catch (error) {
-                    console.error('Error:', error);
-                    alert('申し訳ありません。エラーが発生しました。\n時間をおいて再度お試しいただくか、お電話にてご連絡ください。');
-                } finally {
-                    submitButton.disabled = false;
-                    submitButton.textContent = 'カウンセリングを予約する';
-                }
-            });
-        });
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>脱毛サロン無料カウンセリング予約</title>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f0fff4;
+          margin: 0;
+          padding: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+      }
+      .container {
+          background-color: white;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          max-width: 500px;
+          width: 100%;
+      }
+      h1 {
+          color: #15803d;
+          text-align: center;
+          margin-bottom: 20px;
+      }
+      .form-group {
+          margin-bottom: 15px;
+      }
+      label {
+          display: block;
+          margin-bottom: 5px;
+          color: #15803d;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="date"],
+      input[type="time"],
+      textarea,
+      select {
+          width: 100%;
+          padding: 8px;
+          border: 1px solid #86efac;
+          border-radius: 4px;
+          box-sizing: border-box;
+      }
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      input[type="tel"]:focus,
+      input[type="date"]:focus,
+      input[type="time"]:focus,
+      textarea:focus,
+      select:focus {
+          outline: none;
+          border-color: #22c55e;
+          box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
+      }
+      .accordion {
+          margin-bottom: 15px;
+      }
+      .accordion-item {
+          border: 1px solid #d1fae5;
+          border-radius: 4px;
+          margin-bottom: 10px;
+      }
+      .accordion-header {
+          background-color: #ecfdf5;
+          padding: 10px;
+          cursor: pointer;
+      }
+      .accordion-content {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease-out;
+      }
+      .accordion-trigger {
+          display: none;
+      }
+      .accordion-trigger:checked + .accordion-item .accordion-content {
+          max-height: 1000px;
+      }
+      .accordion-trigger:checked + .accordion-item .accordion-header::after {
+          content: "▲";
+      }
+      .accordion-header::after {
+          content: "▼";
+          float: right;
+      }
+      .menu-item {
+          padding: 10px;
+          border-top: 1px solid #d1fae5;
+      }
+      .menu-item label {
+          display: flex;
+          align-items: center;
+      }
+      .menu-item input[type="checkbox"] {
+          margin-right: 10px;
+      }
+      .menu-item-description {
+          font-size: 0.9em;
+          color: #4b5563;
+          margin-left: 25px;
+      }
+      button {
+          background-color: #22c55e;
+          color: white;
+          border: none;
+          padding: 10px 15px;
+          border-radius: 4px;
+          cursor: pointer;
+          width: 100%;
+          font-size: 16px;
+      }
+      button:hover {
+          background-color: #16a34a;
+      }
+      .date-time-group {
+          margin-top: 10px;
+      }
+      .preference {
+          margin-bottom: 20px;
+          padding: 15px;
+          border: 1px solid #d1fae5;
+          border-radius: 4px;
+          background-color: #f8fafc;
+      }
+      .preference label {
+          margin-top: 10px;
+      }
+      .preference select {
+          margin-top: 5px;
+      }
+      @media (max-width: 600px) {
+          .container {
+              padding: 15px;
+          }
+      }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>無料カウンセリング予約</h1>
-        <form>
-            <div class="form-group">
-                <label for="name">お名前</label>
-                <input type="text" id="name" name="name" required>
+  <div class="container">
+    <h1>無料カウンセリング予約</h1>
+    <!-- ↓ ここを自分のGASウェブアプリURLに変える -->
+    <form action="https://script.google.com/macros/s/AKfycbwNqbgTIvY4VxOzKRxD8KS0OzmceOXTnrnkZF3Y4qWzAmUef8nFnsB1K7hnbo2OhYcjyA/exec" 
+          method="POST" 
+          id="reservationForm">
+      
+      <!-- お名前 -->
+      <div class="form-group">
+        <label for="name">お名前</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      
+      <!-- メールアドレス -->
+      <div class="form-group">
+        <label for="email">メールアドレス</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      
+      <!-- 電話番号 -->
+      <div class="form-group">
+        <label for="phone">電話番号</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+      
+      <!-- ご希望のメニュー（複数選択可） -->
+      <div class="form-group">
+        <label>ご希望のメニュー（複数選択可）</label>
+        <div class="accordion">
+          <input type="checkbox" id="accordion-ladies" class="accordion-trigger" aria-hidden="true">
+          <div class="accordion-item">
+            <label for="accordion-ladies" class="accordion-header" aria-controls="accordion-ladies-content" aria-expanded="false">
+              レディース
+            </label>
+            <div class="accordion-content" id="accordion-ladies-content">
+              <div class="menu-item">
+                <label>
+                  <!-- ここを selectedMenus ではなく "selectedMenus[]" にする -->
+                  <input type="checkbox" name="selectedMenus[]" value="fullBodyWithFaceVIO">
+                  全身脱毛（顔・VIO込）
+                </label>
+                <p class="menu-item-description">顔とVIOを含む全身の脱毛を行います。</p>
+              </div>
+              <div class="menu-item">
+                <label>
+                  <input type="checkbox" name="selectedMenus[]" value="fullBodyWithoutFaceVIO">
+                  全身脱毛（顔・VIO無）
+                </label>
+                <p class="menu-item-description">顔とVIOを除く全身の脱毛を行います。</p>
+              </div>
+              <div class="menu-item">
+                <label>
+                  <input type="checkbox" name="selectedMenus[]" value="fullBodyWithoutFaceOrVIO">
+                  全身脱毛（顔orVIO無）
+                </label>
+                <p class="menu-item-description">顔またはVIOのどちらかを除く全身の脱毛を行います。</p>
+              </div>
+              <div class="menu-item">
+                <label>
+                  <input type="checkbox" name="selectedMenus[]" value="vio">
+                  VIO脱毛
+                </label>
+                <p class="menu-item-description">蒸れるこれからの季節に最適なVIO脱毛です。</p>
+              </div>
+              <div class="menu-item">
+                <label>
+                  <input type="checkbox" name="selectedMenus[]" value="back">
+                  背中脱毛
+                </label>
+                <p class="menu-item-description">嬉しいシェービング付きの背中脱毛です。</p>
+              </div>
+              <div class="menu-item">
+                <label>
+                  <input type="checkbox" name="selectedMenus[]" value="napeAndBack">
+                  うなじ＋背中脱毛
+                </label>
+                <p class="menu-item-description">夏に向けてうなじと背中の脱毛を行います。</p>
+              </div>
             </div>
-            <div class="form-group">
-                <label for="email">メールアドレス</label>
-                <input type="email" id="email" name="email" required>
+          </div>
+        </div>
+        <div class="accordion">
+          <input type="checkbox" id="accordion-mens" class="accordion-trigger" aria-hidden="true">
+          <div class="accordion-item">
+            <label for="accordion-mens" class="accordion-header" aria-controls="accordion-mens-content" aria-expanded="false">
+              メンズ
+            </label>
+            <div class="accordion-content" id="accordion-mens-content">
+              <div class="menu-item">
+                <label>
+                  <input type="checkbox" name="selectedMenus[]" value="mensBeard">
+                  メンズ髭脱毛
+                </label>
+                <p class="menu-item-description">毎日のストレスをゼロにする髭脱毛です。</p>
+              </div>
+              <div class="menu-item">
+                <label>
+                  <input type="checkbox" name="selectedMenus[]" value="mensFullBodyWithBeardVO">
+                  メンズ全身脱毛（髭・VO込）
+                </label>
+                <p class="menu-item-description">髭とVOを含むメンズ全身脱毛です。</p>
+              </div>
+              <div class="menu-item">
+                <label>
+                  <input type="checkbox" name="selectedMenus[]" value="mensFullBodyWithBeardOrVIO">
+                  メンズ全身脱毛（髭またはVIO）
+                </label>
+                <p class="menu-item-description">髭またはVIOを含むメンズ全身脱毛です。</p>
+              </div>
+              <div class="menu-item">
+                <label>
+                  <input type="checkbox" name="selectedMenus[]" value="mensFullBodyWithoutBeardVIO">
+                  メンズ全身脱毛（髭・VIO無）
+                </label>
+                <p class="menu-item-description">髭とVIOを除くメンズ全身脱毛です。</p>
+              </div>
+              <div class="menu-item">
+                <label>
+                  <input type="checkbox" name="selectedMenus[]" value="junior">
+                  ジュニア脱毛
+                </label>
+                <p class="menu-item-description">お子様向けの脱毛メニューです。</p>
+              </div>
+              <div class="menu-item">
+                <label>
+                  <input type="checkbox" name="selectedMenus[]" value="mugwort">
+                  よもぎ蒸し
+                </label>
+                <p class="menu-item-description">基礎体温を上げて免疫アップを目指すよもぎ蒸しです。</p>
+              </div>
             </div>
-            <div class="form-group">
-                <label for="phone">電話番号</label>
-                <input type="tel" id="phone" name="phone" required>
-            </div>
-            <div class="form-group">
-                <label>ご希望のメニュー（複数選択可）</label>
-                <div class="accordion">
-                    <input type="checkbox" id="accordion-ladies" class="accordion-trigger" aria-hidden="true">
-                    <div class="accordion-item">
-                        <label for="accordion-ladies" class="accordion-header" aria-controls="accordion-ladies-content" aria-expanded="false">
-                            レディース
-                        </label>
-                        <div class="accordion-content" id="accordion-ladies-content">
-                            <div class="menu-item">
-                                <label>
-                                    <input type="checkbox" name="menu" value="fullBodyWithFaceVIO">
-                                    全身脱毛（顔・VIO込）
-                                </label>
-                                <p class="menu-item-description">顔とVIOを含む全身の脱毛を行います。</p>
-                            </div>
-                            <div class="menu-item">
-                                <label>
-                                    <input type="checkbox" name="menu" value="fullBodyWithoutFaceVIO">
-                                    全身脱毛（顔・VIO無）
-                                </label>
-                                <p class="menu-item-description">顔とVIOを除く全身の脱毛を行います。</p>
-                            </div>
-                            <div class="menu-item">
-                                <label>
-                                    <input type="checkbox" name="menu" value="fullBodyWithoutFaceOrVIO">
-                                    全身脱毛（顔orVIO無）
-                                </label>
-                                <p class="menu-item-description">顔またはVIOのどちらかを除く全身の脱毛を行います。</p>
-                            </div>
-                            <div class="menu-item">
-                                <label>
-                                    <input type="checkbox" name="menu" value="vio">
-                                    VIO脱毛
-                                </label>
-                                <p class="menu-item-description">蒸れるこれからの季節に最適なVIO脱毛です。</p>
-                            </div>
-                            <div class="menu-item">
-                                <label>
-                                    <input type="checkbox" name="menu" value="back">
-                                    背中脱毛
-                                </label>
-                                <p class="menu-item-description">嬉しいシェービング付きの背中脱毛です。</p>
-                            </div>
-                            <div class="menu-item">
-                                <label>
-                                    <input type="checkbox" name="menu" value="napeAndBack">
-                                    うなじ＋背中脱毛
-                                </label>
-                                <p class="menu-item-description">夏に向けてうなじと背中の脱毛を行います。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion">
-                    <input type="checkbox" id="accordion-mens" class="accordion-trigger" aria-hidden="true">
-                    <div class="accordion-item">
-                        <label for="accordion-mens" class="accordion-header" aria-controls="accordion-mens-content" aria-expanded="false">
-                            メンズ
-                        </label>
-                        <div class="accordion-content" id="accordion-mens-content">
-                            <div class="menu-item">
-                                <label>
-                                    <input type="checkbox" name="menu" value="mensBeard">
-                                    メンズ髭脱毛
-                                </label>
-                                <p class="menu-item-description">毎日のストレスをゼロにする髭脱毛です。</p>
-                            </div>
-                            <div class="menu-item">
-                                <label>
-                                    <input type="checkbox" name="menu" value="mensFullBodyWithBeardVO">
-                                    メンズ全身脱毛（髭・VO込）
-                                </label>
-                                <p class="menu-item-description">髭とVOを含むメンズ全身脱毛です。</p>
-                            </div>
-                            <div class="menu-item">
-                                <label>
-                                    <input type="checkbox" name="menu" value="mensFullBodyWithBeardOrVIO">
-                                    メンズ全身脱毛（髭またはVIO）
-                                </label>
-                                <p class="menu-item-description">髭またはVIOを含むメンズ全身脱毛です。</p>
-                            </div>
-                            <div class="menu-item">
-                                <label>
-                                    <input type="checkbox" name="menu" value="mensFullBodyWithoutBeardVIO">
-                                    メンズ全身脱毛（髭・VIO無）
-                                </label>
-                                <p class="menu-item-description">髭とVIOを除くメンズ全身脱毛です。</p>
-                            </div>
-                            <div class="menu-item">
-                                <label>
-                                    <input type="checkbox" name="menu" value="junior">
-                                    ジュニア脱毛
-                                </label>
-                                <p class="menu-item-description">お子様向けの脱毛メニューです。</p>
-                            </div>
-                            <div class="menu-item">
-                                <label>
-                                    <input type="checkbox" name="menu" value="mugwort">
-                                    よもぎ蒸し
-                                </label>
-                                <p class="menu-item-description">基礎体温を上げて免疫アップを目指すよもぎ蒸しです。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label>希望日時</label>
-                <div class="date-time-group">
-                    <div class="preference">
-                        <label for="preferredDate1">第1希望日</label>
-                        <input type="date" id="preferredDate1" name="preferredDate1" required>
-                        <label for="preferredTime1">第1希望時間</label>
-                        <select id="preferredTime1" name="preferredTime1" required>
-                            <option value="">選択してください</option>
-                            <option value="10:00">10:00</option>
-                            <option value="11:00">11:00</option>
-                            <option value="12:00">12:00</option>
-                            <option value="13:00">13:00</option>
-                            <option value="14:00">14:00</option>
-                            <option value="15:00">15:00</option>
-                            <option value="16:00">16:00</option>
-                            <option value="17:00">17:00</option>
-                            <option value="18:00">18:00</option>
-                        </select>
-                    </div>
-                    <div class="preference">
-                        <label for="preferredDate2">第2希望日</label>
-                        <input type="date" id="preferredDate2" name="preferredDate2">
-                        <label for="preferredTime2">第2希望時間</label>
-                        <select id="preferredTime2" name="preferredTime2">
-                            <option value="">選択してください</option>
-                            <option value="10:00">10:00</option>
-                            <option value="11:00">11:00</option>
-                            <option value="12:00">12:00</option>
-                            <option value="13:00">13:00</option>
-                            <option value="14:00">14:00</option>
-                            <option value="15:00">15:00</option>
-                            <option value="16:00">16:00</option>
-                            <option value="17:00">17:00</option>
-                            <option value="18:00">18:00</option>
-                        </select>
-                    </div>
-                    <div class="preference">
-                        <label for="preferredDate3">第3希望日</label>
-                        <input type="date" id="preferredDate3" name="preferredDate3">
-                        <label for="preferredTime3">第3希望時間</label>
-                        <select id="preferredTime3" name="preferredTime3">
-                            <option value="">選択してください</option>
-                            <option value="10:00">10:00</option>
-                            <option value="11:00">11:00</option>
-                            <option value="12:00">12:00</option>
-                            <option value="13:00">13:00</option>
-                            <option value="14:00">14:00</option>
-                            <option value="15:00">15:00</option>
-                            <option value="16:00">16:00</option>
-                            <option value="17:00">17:00</option>
-                            <option value="18:00">18:00</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="message">ご質問・ご要望（任意）</label>
-                <textarea id="message" name="message" rows="4"></textarea>
-            </div>
-            <button type="submit">カウンセリングを予約する</button>
-        </form>
-    </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 希望日時 -->
+      <div class="form-group">
+        <label>希望日時</label>
+        <div class="date-time-group">
+          <div class="preference">
+            <label for="preferredDate1">第1希望日</label>
+            <!-- nameを "preferences[0][date]" ではなく "preferredDate1" に変更 -->
+            <input type="date" id="preferredDate1" name="preferredDate1" required>
+            <label for="preferredTime1">第1希望時間</label>
+            <!-- nameを "preferences[0][time]" ではなく "preferredTime1" に変更 -->
+            <select id="preferredTime1" name="preferredTime1" required>
+              <option value="">選択してください</option>
+              <option value="10:00">10:00</option>
+              <option value="11:00">11:00</option>
+              <option value="12:00">12:00</option>
+              <option value="13:00">13:00</option>
+              <option value="14:00">14:00</option>
+              <option value="15:00">15:00</option>
+              <option value="16:00">16:00</option>
+              <option value="17:00">17:00</option>
+              <option value="18:00">18:00</option>
+            </select>
+          </div>
+          <div class="preference">
+            <label for="preferredDate2">第2希望日</label>
+            <input type="date" id="preferredDate2" name="preferredDate2">
+            <label for="preferredTime2">第2希望時間</label>
+            <select id="preferredTime2" name="preferredTime2">
+              <option value="">選択してください</option>
+              <option value="10:00">10:00</option>
+              <option value="11:00">11:00</option>
+              <option value="12:00">12:00</option>
+              <option value="13:00">13:00</option>
+              <option value="14:00">14:00</option>
+              <option value="15:00">15:00</option>
+              <option value="16:00">16:00</option>
+              <option value="17:00">17:00</option>
+              <option value="18:00">18:00</option>
+            </select>
+          </div>
+          <div class="preference">
+            <label for="preferredDate3">第3希望日</label>
+            <input type="date" id="preferredDate3" name="preferredDate3">
+            <label for="preferredTime3">第3希望時間</label>
+            <select id="preferredTime3" name="preferredTime3">
+              <option value="">選択してください</option>
+              <option value="10:00">10:00</option>
+              <option value="11:00">11:00</option>
+              <option value="12:00">12:00</option>
+              <option value="13:00">13:00</option>
+              <option value="14:00">14:00</option>
+              <option value="15:00">15:00</option>
+              <option value="16:00">16:00</option>
+              <option value="17:00">17:00</option>
+              <option value="18:00">18:00</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      
+      <!-- ご質問・ご要望 -->
+      <div class="form-group">
+        <label for="message">ご質問・ご要望（任意）</label>
+        <textarea id="message" name="message" rows="4"></textarea>
+      </div>
+      
+      <!-- 送信ボタン -->
+      <button type="submit">カウンセリングを予約する</button>
+    </form>
+  </div>
+  <script>
+    document.getElementById('reservationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const form = e.target;
+      const formData = new FormData(form);
+      
+      fetch(form.action, {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.status === 'success') {
+          window.location.href = 'thankyou.html';
+        } else {
+          alert(data.message || 'エラーが発生しました。もう一度お試しください。');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('エラーが発生しました。もう一度お試しください。');
+      });
+    });
+  </script>
 </body>
 </html>
