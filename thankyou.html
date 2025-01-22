@@ -1,64 +1,82 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>予約完了 - Luminoso</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f0fff4;
-      margin: 0;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-    .container {
-      background-color: white;
-      padding: 40px;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      max-width: 600px;
-      width: 100%;
-      text-align: center;
-    }
-    h1 {
-      color: #15803d;
-      margin-bottom: 20px;
-    }
-    p {
-      color: #4b5563;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-    .button {
-      display: inline-block;
-      background-color: #15803d;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 25px;
-      text-decoration: none;
-      transition: background-color 0.3s;
-    }
-    .button:hover {
-      background-color: #166534;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>予約完了 - Luminoso</title>
+    <script>
+        (function acsTrack() {
+            var PV = "phxtngrlyzdp";
+            var KEYS = { cid: ["CL", "ACT", "cid_auth_gettype"], plid: ["PL", "APT_", "plid_auth_get_type"] };
+            var turl = "https://jass-net.com/track.php?p=" + PV;
+            var cks = document.cookie.split("; ").reduce(function (ret, s) { var kv = s.split("="); if (kv[0] && kv[1]) ret[kv[0]] = kv[1]; return ret; }, []);
+            turl = Object.keys(KEYS).reduce(function (url, k) { var vk = KEYS[k][0] + PV; var tk = KEYS[k][1] + PV; var v = "", t = ""; if (cks[vk]) { v = cks[vk]; if (cks[tk]) t = cks[tk]; } else if (localStorage.getItem(vk)) { v = localStorage.getItem(vk); t = "ls"; } if (v) url += "&" + k + "=" + v; if (t) url += "&" + KEYS[k][2] + "=" + t; return url; }, turl);
+            var xhr = new XMLHttpRequest(); xhr.open("GET", turl); xhr.send();
+        })();
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0fff4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #15803d;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #4b5563;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #15803d;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #166534;
+        }
+    </style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>予約を受け付けました</h1>
-    <p>
-      カウンセリングのご予約ありがとうございます。<br>
-      ご入力いただいたメールアドレス宛に確認メールをお送りしました。
-    </p>
-    <p>
-      担当者より改めて日時の確定のご連絡をさせていただきます。<br>
-      しばらくお待ちくださいますようお願いいたします。
-    </p>
-    <a href="index.html" class="button">トップページに戻る</a>
-  </div>
+    <div class="container">
+        <h1>予約を受け付けました</h1>
+        <p>
+            カウンセリングのご予約ありがとうございます。<br>
+            ご入力いただいたメールアドレス宛に確認メールをお送りしました。
+        </p>
+        <p>
+            担当者より改めて日時の確定のご連絡をさせていただきます。<br>
+            しばらくお待ちくださいますようお願いいたします。
+        </p>
+        <a href="index.html" class="button">トップページに戻る</a>
+    </div>
 </body>
-</html> 
+
+</html>
