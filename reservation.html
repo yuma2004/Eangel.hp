@@ -350,6 +350,46 @@
     </form>
   </div>
   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 現在の日付を取得
+      const today = new Date();
+      const yyyy = today.getFullYear();
+      const mm = String(today.getMonth() + 1).padStart(2, '0');
+      const dd = String(today.getDate()).padStart(2, '0');
+      const minDate = `${yyyy}-${mm}-${dd}`;
+
+      // 日付入力フィールドに最小値を設定
+      document.getElementById('preferredDate1').min = minDate;
+      document.getElementById('preferredDate2').min = minDate;
+      document.getElementById('preferredDate3').min = minDate;
+
+      // 時間の制限を設定する関数
+      function updateTimeOptions() {
+        const now = new Date();
+        const selectedDate = new Date(this.value);
+        const timeSelect = document.getElementById(this.id.replace('Date', 'Time'));
+        const isToday = selectedDate.toDateString() === now.toDateString();
+
+        // 全ての時間オプションをリセット
+        Array.from(timeSelect.options).forEach(option => {
+          if (option.value) {
+            const [hours] = option.value.split(':');
+            option.disabled = isToday && parseInt(hours) <= now.getHours();
+          }
+        });
+
+        // もし選択された時間が無効な場合、選択をリセット
+        if (timeSelect.selectedOptions[0].disabled) {
+          timeSelect.value = '';
+        }
+      }
+
+      // 日付入力フィールドにイベントリスナーを追加
+      document.getElementById('preferredDate1').addEventListener('change', updateTimeOptions);
+      document.getElementById('preferredDate2').addEventListener('change', updateTimeOptions);
+      document.getElementById('preferredDate3').addEventListener('change', updateTimeOptions);
+    });
+
     document.getElementById('reservationForm').addEventListener('submit', function(e) {
       e.preventDefault();
       
