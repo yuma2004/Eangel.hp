@@ -146,6 +146,7 @@
 <body>
   <div class="container">
     <h1>無料カウンセリング予約</h1>
+
     <!-- ↓ ここを自分のGASウェブアプリURLに変える -->
     <form action="https://script.google.com/macros/s/AKfycbwNqbgTIvY4VxOzKRxD8KS0OzmceOXTnrnkZF3Y4qWzAmUef8nFnsB1K7hnbo2OhYcjyA/exec" 
           method="POST" 
@@ -348,6 +349,36 @@
       <!-- 送信ボタン -->
       <button type="submit">カウンセリングを予約する</button>
     </form>
+
+    <!-- アクセス情報 -->
+    <div class="access-info" style="margin-top: 40px; padding: 20px; background-color: #f8fafc; border-radius: 8px; border: 1px solid #d1fae5;">
+      <h2 style="color: #15803d; margin-top: 0; margin-bottom: 15px; font-size: 1.5em;">アクセス情報</h2>
+      <div style="margin-bottom: 15px;">
+        <h3 style="color: #15803d; margin-bottom: 8px; font-size: 1.2em;">住所</h3>
+        <p style="margin: 0; color: #4b5563;">
+          〒664-0895<br>
+          兵庫県伊丹市宮ノ前３丁目２−１３−７０１
+        </p>
+      </div>
+      <!-- マップ表示ボタン -->
+      <button type="button" 
+              id="toggleMap" 
+              style="background-color: #f8fafc; color: #15803d; border: 1px solid #15803d; margin: 10px 0; width: auto; padding: 8px 16px;">
+        地図を表示
+      </button>
+      <!-- マップコンテナ -->
+      <div id="mapContainer" style="display: none; margin-bottom: 15px;">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d289.63962234437383!2d135.41429692051358!3d34.783336551588036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000f054f6480a6f%3A0x87bc30058798e314!2z44CSNjY0LTA4OTUg5YW15bqr55yM5LyK5Li55biC5a6u44OO5YmN77yT5LiB55uu77yS4oiS77yR77yT4oiS77yX77yQ77yR!5e0!3m2!1sja!2sjp!4v1739236368841!5m2!1sja!2sjp"
+          width="100%"
+          height="300"
+          style="border: 0; border-radius: 4px;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
   </div>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -413,6 +444,25 @@
         alert('エラーが発生しました。もう一度お試しください。');
       });
     });
+
+    // マップの表示/非表示を切り替える
+    document.getElementById('toggleMap').addEventListener('click', function() {
+      const mapContainer = document.getElementById('mapContainer');
+      const button = document.getElementById('toggleMap');
+      if (mapContainer.style.display === 'none') {
+        mapContainer.style.display = 'block';
+        button.textContent = '地図を非表示';
+      } else {
+        mapContainer.style.display = 'none';
+        button.textContent = '地図を表示';
+      }
+    });
+
+    // PCの場合は初期表示時にマップを表示
+    if (window.innerWidth > 600) {
+      document.getElementById('mapContainer').style.display = 'block';
+      document.getElementById('toggleMap').textContent = '地図を非表示';
+    }
   </script>
 </body>
 </html>
